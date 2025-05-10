@@ -1,5 +1,7 @@
 package ITEMS;
 
+import java.util.Objects; // buat inventory
+
 public abstract class Item {
     private String name;
     private int buyPrice;
@@ -7,10 +9,10 @@ public abstract class Item {
     private boolean giftable;
 
     public Item(String name, int buyPrice, int sellPrice, boolean giftable) {
-        if (sellPrice <= 0) {
+        if (sellPrice < 0) {
             throw new IllegalArgumentException("Item tidak dijual!");
         }
-        if (buyPrice <= 0) {
+        if (buyPrice < 0) {
             throw new IllegalArgumentException("Item tidak dapat dibeli!");
         }
         this.name = name;
@@ -42,4 +44,17 @@ public abstract class Item {
 
     public abstract String getCategory();
     // seeds/crop/fish/equipment/misc
+
+    // buat cek inventory
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Item item = (Item) obj;
+        return name.equals(item.name);
+    }
+
+    // buat cek inventory
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }
