@@ -13,27 +13,21 @@
  * 
  * 
  */
+
 package LocalCalendar;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import LocalCalendar.*;
 import java.util.Scanner;
+
+
 
 
 // Interface untuk Observer Pattern
 interface WeatherObserver {
     void onWeatherChange(Weather weather);
-}
-
-// Enum untuk musim
-enum Season {
-    SPRING, SUMMER, FALL, WINTER
-}
-
-// Enum untuk cuaca
-enum Weather {
-    SUNNY, RAINY
 }
 
 public class GameCalendar {
@@ -203,84 +197,85 @@ public class GameCalendar {
     public Weather getWeather() {
         return weather;
     }
+    // // // Main untuk test apakah berhasil atau tidak & sudah bisa
+    // //     public static void main(String[] args) {
+    // //         GameCalendar calendar = new GameCalendar();
+    // //         Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        GameCalendar calendar = new GameCalendar();
-        Scanner scanner = new Scanner(System.in);
+    // //         // Thread untuk simulasi waktu (latar belakang)
+    // //         Thread timeThread = new Thread(() -> {
+    // //             try {
+    // //                 while (!Thread.currentThread().isInterrupted()) {
+    // //                     // Update waktu tanpa print
+    // //                     calendar.updateTime();
+    // //                     // Tunggu 1 detik nyata
+    // //                     Thread.sleep(1000);
+    // //                 }
+    // //             } catch (InterruptedException e) {
+    // //                 System.out.println("Simulasi waktu dihentikan.");
+    // //             }
+    // //         });
 
-        // Thread untuk simulasi waktu (latar belakang)
-        Thread timeThread = new Thread(() -> {
-            try {
-                while (!Thread.currentThread().isInterrupted()) {
-                    // Update waktu tanpa print
-                    calendar.updateTime();
-                    // Tunggu 1 detik nyata
-                    Thread.sleep(1000);
-                }
-            } catch (InterruptedException e) {
-                System.out.println("Simulasi waktu dihentikan.");
-            }
-        });
+    // //         // Thread untuk membaca input
+    // //         Thread inputThread = new Thread(() -> {
+    // //             try {
+    // //                 System.out.println("Masukkan perintah (show, pause, start, skip <jam>, add <menit>, exit):");
+    // //                 while (!Thread.currentThread().isInterrupted()) {
+    // //                     // Baca input
+    // //                     System.out.print("Perintah: ");
+    // //                     String input = scanner.nextLine().trim().toLowerCase();
 
-        // Thread untuk membaca input
-        Thread inputThread = new Thread(() -> {
-            try {
-                System.out.println("Masukkan perintah (show, pause, start, skip <jam>, add <menit>, exit):");
-                while (!Thread.currentThread().isInterrupted()) {
-                    // Baca input
-                    System.out.print("Perintah: ");
-                    String input = scanner.nextLine().trim().toLowerCase();
+    // //                     // Handle berbagai input
+    // //                     try {
+    // //                         if (input.equals("show")) {
+    // //                             calendar.showTime();
+    // //                         } else if (input.equals("pause")) {
+    // //                             calendar.pauseTime();
+    // //                             System.out.println("Waktu dijeda!");
+    // //                             calendar.showTime();
+    // //                         } else if (input.equals("start")) {
+    // //                             calendar.startTime();
+    // //                             System.out.println("Waktu dilanjutkan!");
+    // //                             calendar.showTime();
+    // //                         } else if (input.startsWith("skip ")) {
+    // //                             int hour = Integer.parseInt(input.substring(5).trim());
+    // //                             calendar.timeSkip(hour);
+    // //                             System.out.println("Waktu dilompati ke " + hour + ":00!");
+    // //                             calendar.showTime();
+    // //                         } else if (input.startsWith("add ")) {
+    // //                             int minutes = Integer.parseInt(input.substring(4).trim());
+    // //                             calendar.addTime(minutes);
+    // //                             System.out.println("Waktu ditambah " + minutes + " menit!");
+    // //                             calendar.showTime();
+    // //                         } else if (input.equals("exit")) {
+    // //                             System.out.println("Menghentikan program...");
+    // //                             timeThread.interrupt();
+    // //                             Thread.currentThread().interrupt();
+    // //                         } else {
+    // //                             System.out.println("Perintah tidak valid. Gunakan: show, pause, start, skip <jam>, add <menit>, exit");
+    // //                         }
+    // //                     } catch ( IllegalArgumentException e) {
+    // //                         System.out.println("Input tidak valid: " + e.getMessage());
+    // //                     }
+    // //                 }
+    // //             } catch (Exception e) {
+    // //                 System.out.println("Input thread dihentikan: " + e.getMessage());
+    // //             } finally {
+    // //                 scanner.close();
+    // //             }
+    // //         });
 
-                    // Handle berbagai input
-                    try {
-                        if (input.equals("show")) {
-                            calendar.showTime();
-                        } else if (input.equals("pause")) {
-                            calendar.pauseTime();
-                            System.out.println("Waktu dijeda!");
-                            calendar.showTime();
-                        } else if (input.equals("start")) {
-                            calendar.startTime();
-                            System.out.println("Waktu dilanjutkan!");
-                            calendar.showTime();
-                        } else if (input.startsWith("skip ")) {
-                            int hour = Integer.parseInt(input.substring(5).trim());
-                            calendar.timeSkip(hour);
-                            System.out.println("Waktu dilompati ke " + hour + ":00!");
-                            calendar.showTime();
-                        } else if (input.startsWith("add ")) {
-                            int minutes = Integer.parseInt(input.substring(4).trim());
-                            calendar.addTime(minutes);
-                            System.out.println("Waktu ditambah " + minutes + " menit!");
-                            calendar.showTime();
-                        } else if (input.equals("exit")) {
-                            System.out.println("Menghentikan program...");
-                            timeThread.interrupt();
-                            Thread.currentThread().interrupt();
-                        } else {
-                            System.out.println("Perintah tidak valid. Gunakan: show, pause, start, skip <jam>, add <menit>, exit");
-                        }
-                    } catch ( IllegalArgumentException e) {
-                        System.out.println("Input tidak valid: " + e.getMessage());
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("Input thread dihentikan: " + e.getMessage());
-            } finally {
-                scanner.close();
-            }
-        });
+    // //         // Mulai kedua thread
+    // //         timeThread.start();
+    // //         inputThread.start();
 
-        // Mulai kedua thread
-        timeThread.start();
-        inputThread.start();
-
-        // Tunggu thread selesai
-        try {
-            timeThread.join();
-            inputThread.join();
-        } catch (InterruptedException e) {
-            System.out.println("Program dihentikan.");
-        }
-    }
+    // //         // Tunggu thread selesai
+    // //         try {
+    // //             timeThread.join();
+    // //             inputThread.join();
+    // //         } catch (InterruptedException e) {
+    // //             System.out.println("Program dihentikan.");
+    // //         }
+    // //     }
+    // }
 }
