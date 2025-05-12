@@ -1,3 +1,5 @@
+package Entitas;
+
 public interface Action{
     public void ShowLocation();
     public void sleep();

@@ -1,3 +1,5 @@
+package Entitas;
+
 public class NPC extends Entity{
     private int maxHeartPoints;
     private int heartPoints;

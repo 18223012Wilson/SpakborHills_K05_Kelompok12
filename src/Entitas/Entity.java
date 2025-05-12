@@ -1,3 +1,5 @@
+package Entitas;
+
 public abstract class Entity{
     private String name;
     private Point location;
