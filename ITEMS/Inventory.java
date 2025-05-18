@@ -2,7 +2,7 @@ package ITEMS;
 
 import LocalCalendar.*;
 
-
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -63,6 +63,30 @@ public class Inventory {
         }
         } else {
             System.out.println("Item tidak ada di inventory!");
+        }
+    }
+
+    // buat cooking 
+    public int getItemCountByCategoryOrName(String nameOrCategory) {
+        int count = 0;
+        for (Item item : items.keySet()) {
+            if (item.getName().equalsIgnoreCase(nameOrCategory) || item.getCategory().equalsIgnoreCase(nameOrCategory)) {
+                count += items.get(item);
+            }
+        }
+        return count;
+    }
+
+    public void removeItemsByCategoryOrName(String nameOrCategory, int quantity) {
+        for (Item item : new ArrayList<>(items.keySet())) {
+            if (quantity <= 0) break;
+
+            if (item.getName().equalsIgnoreCase(nameOrCategory) || item.getCategory().equalsIgnoreCase(nameOrCategory)) {
+                int available = items.get(item);
+                int toRemove = Math.min(quantity, available);
+                removeItem(item, toRemove);
+                quantity -= toRemove;
+            }
         }
     }
 }
