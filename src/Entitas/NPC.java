@@ -8,7 +8,7 @@ public class NPC extends Entity{
     private String[] hatedItems = null;
     private String relationshipStatus;
 
-    public NPC(String name, String location){
+    public NPC(String name, Point location){
         super(name, location);
         this.maxHeartPoints = 150;
         this.heartPoints = 0;

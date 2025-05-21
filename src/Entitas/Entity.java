@@ -2,9 +2,9 @@ package Entitas;
 
 public abstract class Entity{
     private String name;
-    private String location;
+    private Point location;
 
-    public Entity(String name, String location){
+    public Entity(String name, Point location){
         this.name = name;
         this.location = location;
     }
@@ -13,15 +13,15 @@ public abstract class Entity{
         return name;
     }
 
-    public String getLocation(){
+    public Point getLocation(){
         return location;
     }
 
     public void ShowLocation(){
-        System.out.println("Kamu berada di " + getLocation());
+        System.out.println("Kamu berada di " + location.getX() + "," + location.getY());
     }
 
-    public void moveTo(String newLocation){
+    public void moveTo(Point newLocation){
         this.location = newLocation;
     }
 }

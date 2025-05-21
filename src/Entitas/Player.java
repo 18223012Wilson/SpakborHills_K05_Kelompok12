@@ -10,7 +10,7 @@ public class Player extends Entity{
     private int gold;
     private Inventory inventory;
 
-    public Player(String name, String location, String gender, String farmName){
+    public Player(String name, Point location, String gender, String farmName){
         super(name, location);
         this.gender = gender;
         this.maxEnergy = 100;
