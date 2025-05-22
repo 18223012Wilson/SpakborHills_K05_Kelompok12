@@ -18,7 +18,7 @@ public class Gifting extends Action{
     }
 
     public void execute(){
-        // kondisi di rumah NPC
+        // cek apakah di rumah NPC
         System.out.println("Melakukan aksi: " + name);
         
         Boolean found = false;
@@ -42,24 +42,51 @@ public class Gifting extends Action{
         int npcHeartPoints = npc.getHeartPoints();
         player.setEnergy(energy-5);
         if(!gift.isGiftable()){
-            System.out.println("Kamu tidak bisa memberikan item tersebut");
+            System.out.println("Kamu tidak bisa memberikan item tersebut!");
         }else{
             //untuk loveditems
             if(npc.getName().equals("Emily")){
                 if(gift instanceof Seed){
+                    System.out.println(player.getName() + " : Hai " + npc.getName() + ", aku ada sesuatu untukmu.");
+                    try {
+                        Thread.sleep(1000); 
+                    } catch (InterruptedException e) {
+                        e.printStackTrace(); 
+                    }
+                    System.out.println(npc.getName() + " : Wah terimakasih, aku sangat suka barang ini!");
+                    try {
+                        Thread.sleep(1000); 
+                    } catch (InterruptedException e) {
+                        e.printStackTrace(); 
+                    }
+                    System.out.println(npc.getName() + " terlihat sangat senang.");
+                    
                     player.getInventory().removeItem(gift, 1);
                     npcHeartPoints += 25;
                     npc.setHeartPoints(npcHeartPoints);
-                    //percakapan sendiri/+10mnt
+                    
                     return;
                 }
             }else{
                 for(String s : npc.getLovedItems()){
                     if(gift.getName().equals(s)){
+                        System.out.println(player.getName() + " : Hai " + npc.getName() + ", aku ada sesuatu untukmu.");
+                        try {
+                            Thread.sleep(1000); 
+                        } catch (InterruptedException e) {
+                            e.printStackTrace(); 
+                        }
+                        System.out.println(npc.getName() + " : Wah terimakasih, aku sangat suka barang ini!");
+                        try {
+                            Thread.sleep(1000); 
+                        } catch (InterruptedException e) {
+                            e.printStackTrace(); 
+                        }
+                        System.out.println(npc.getName() + " terlihat sangat senang.");
+                        
                         player.getInventory().removeItem(gift, 1);
                         npcHeartPoints += 25;
                         npc.setHeartPoints(npcHeartPoints);
-                        //percakapan sendiri/+10mnt
                         return;
                     }
                 }
@@ -67,40 +94,104 @@ public class Gifting extends Action{
             //untuk likeditems
             for(String s : npc.getLikedItems()){
                 if(gift.getName().equals(s)){
+                    System.out.println(player.getName() + " : Hai " + npc.getName() + ", aku ada sesuatu untukmu.");
+                    try {
+                        Thread.sleep(1000); 
+                    } catch (InterruptedException e) {
+                        e.printStackTrace(); 
+                    }
+                    System.out.println(npc.getName() + " : Barang ini sangat bagus, terimakasih!");
+                    try {
+                        Thread.sleep(1000); 
+                    } catch (InterruptedException e) {
+                        e.printStackTrace(); 
+                    }
+                    System.out.println(npc.getName() + " terlihat senang.");
+
                     player.getInventory().removeItem(gift, 1);
                     npcHeartPoints += 20;
                     npc.setHeartPoints(npcHeartPoints);
-                    //percakapan sendiri/+10mnt
                     return;
                 }
             }
             //untuk hateditems
             if(npc.getName().equals("Mayor Tedi")){
+                System.out.println(player.getName() + " : Hai " + npc.getName() + ", aku ada sesuatu untukmu.");
+                try {
+                    Thread.sleep(1000); 
+                } catch (InterruptedException e) {
+                    e.printStackTrace(); 
+                }
+                System.out.println(npc.getName() + " : Oh, terimakasih?");
+                try {
+                    Thread.sleep(1000); 
+                } catch (InterruptedException e) {
+                    e.printStackTrace(); 
+                }
+                System.out.println(npc.getName() + " terlihat kurang senang.");
+
                 player.getInventory().removeItem(gift, 1);
                 npcHeartPoints -= 25;
                 npc.setHeartPoints(npcHeartPoints);
-                //percakapan sendiri/+10mnt
                 return;
             }else if(npc.getName().equals("Perry")){
                 if(gift instanceof Fish){
+                    System.out.println(player.getName() + " : Hai " + npc.getName() + ", aku ada sesuatu untukmu.");
+                    try {
+                        Thread.sleep(1000); 
+                    } catch (InterruptedException e) {
+                        e.printStackTrace(); 
+                    }
+                    System.out.println(npc.getName() + " : Oh, terimakasih?");
+                    try {
+                        Thread.sleep(1000); 
+                    } catch (InterruptedException e) {
+                        e.printStackTrace(); 
+                    }
+                    System.out.println(npc.getName() + " terlihat kurang senang.");
+
                     player.getInventory().removeItem(gift, 1);
                     npcHeartPoints -= 25;
                     npc.setHeartPoints(npcHeartPoints);
-                    //percakapan sendiri/+10mnt
                     return;
                 }
             }else{
                 for(String s : npc.getHatedItems()){
                     if(gift.getName().equals(s)){
+                        System.out.println(player.getName() + " : Hai " + npc.getName() + ", aku ada sesuatu untukmu.");
+                        try {
+                            Thread.sleep(1000); 
+                        } catch (InterruptedException e) {
+                            e.printStackTrace(); 
+                        }
+                        System.out.println(npc.getName() + " : Oh, terimakasih?");
+                        try {
+                            Thread.sleep(1000); 
+                        } catch (InterruptedException e) {
+                            e.printStackTrace(); 
+                        }
+                        System.out.println(npc.getName() + " terlihat kurang senang.");
+
                         player.getInventory().removeItem(gift, 1);
                         npcHeartPoints -= 25;
                         npc.setHeartPoints(npcHeartPoints);
-                        //percakapan sendiri/+10mnt
                         return;
                     }
                 }
             }
-            //percakapan neutral item
+            System.out.println(player.getName() + " : Hai " + npc.getName() + ", aku ada sesuatu untukmu.");
+            try {
+                Thread.sleep(1000); 
+            } catch (InterruptedException e) {
+                e.printStackTrace(); 
+            }
+            System.out.println(npc.getName() + " : Terimakasih!");
+            try {
+                Thread.sleep(1000); 
+            } catch (InterruptedException e) {
+                e.printStackTrace(); 
+            }
+            System.out.println(npc.getName() + " terlihat biasa saja.");
         }
     }
 }

@@ -16,7 +16,7 @@ public class Marrying extends Action{
     }
 
     public void execute(){
-        // kondisi di rumah NPC
+        // cek apakah di rumah NPC
         System.out.println("Melakukan aksi: " + name);
         int energy = player.getEnergy();
         
@@ -42,9 +42,26 @@ public class Marrying extends Action{
                 calendar.timeSkip(22);
                 npc.setRelationshipStatus("spouse");
                 //player dikembalikan ke rumah
+
+                System.out.println(player.getName() + " : Aku ingin menghabiskan sisa hidupku bersamamu. Maukah kamu menikah denganku?");
+                try {
+                    Thread.sleep(1000); 
+                } catch (InterruptedException e) {
+                    e.printStackTrace(); 
+                }
+                System.out.println(npc.getName() + " : Aku dengan senang hati menerimanya. Aku mencintaimu.");
+                try {
+                    Thread.sleep(1000); 
+                } catch (InterruptedException e) {
+                    e.printStackTrace(); 
+                }
+                System.out.println("Kalian menghabiskan seharian dalam suasana berbahagia.");
+                System.out.println(npc.getName() + " sekarang menjadi spouse mu.");
             }else{
-                System.out.println("Terlalu cepat untuk menikah");
+                System.out.println("Terlalu cepat untuk menikah!");
             }
+        }else{
+            System.out.println(npc.getName() + " bukan fiance mu!");
         }
     }
 }

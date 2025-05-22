@@ -17,7 +17,7 @@ public class Proposing extends Action{
     }
 
     public void execute(){
-        // kondisi di rumah NPC
+        // cek apakah di rumah NPC
         System.out.println("Melakukan aksi: " + name);
 
         Boolean found = false;
@@ -43,10 +43,36 @@ public class Proposing extends Action{
             player.setPartner(npc);
             npc.setRelationshipStatus("fiance");
             Proposing.time = calendar.getDay();
-            //+10mnt atau percakapan
+
+            System.out.println(player.getName() + " : Hai " + npc.getName() + ", maukah kamu menjadi tunanganku?");
+                try {
+                    Thread.sleep(1000); 
+                } catch (InterruptedException e) {
+                    e.printStackTrace(); 
+                }
+                System.out.println(npc.getName() + " : Ya, aku mau! Aku nggak pernah sebahagia ini.");
+                try {
+                    Thread.sleep(1000); 
+                } catch (InterruptedException e) {
+                    e.printStackTrace(); 
+                }
+                System.out.println("Kalian menghabiskan beberapa waktu dalam suasana berbahagia.");
+                System.out.println(npc.getName() + " sekarang menjadi fiance mu.");
         }else if(npc.getHeartPoints() < npc.getMaxHeartPoints()){
             player.setEnergy(energy-20);
-            //+10mnt atau percakapan
+            System.out.println(player.getName() + " : Hai " + npc.getName() + ", maukah kamu menjadi tunanganku?");
+                try {
+                    Thread.sleep(1000); 
+                } catch (InterruptedException e) {
+                    e.printStackTrace(); 
+                }
+                System.out.println(npc.getName() + " : Maaf, kamu orang yang baik, namun aku belum siap untuk itu.");
+                try {
+                    Thread.sleep(1000); 
+                } catch (InterruptedException e) {
+                    e.printStackTrace(); 
+                }
+                System.out.println("Kamu bersedih untuk beberapa saat.");
         }
     }
 }

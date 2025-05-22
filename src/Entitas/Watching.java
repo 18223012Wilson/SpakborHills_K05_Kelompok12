@@ -17,6 +17,7 @@ public class Watching extends Action{
             System.out.println("Energi tidak cukup!");
             return;
         }
+        System.out.println("Cuaca hari ini " + calendar.getWeather());
         player.setEnergy(energy-5);
         calendar.addTime(15);
     }
