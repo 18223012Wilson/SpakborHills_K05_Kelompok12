@@ -1,9 +1,7 @@
 package ITEMS;
 
 import LocalCalendar.*;
-import Playerr.Point;
 import java.util.List;
-
 
 public class Fish extends Item implements EdibleItem {
     public enum FishType {
@@ -14,9 +12,9 @@ public class Fish extends Item implements EdibleItem {
     private List<Season> seasons;
     private List<TimeRange> timeRanges;
     private List<Weather> weathers;
-    private List<Point> locations;
+    private List<String> locations;
 
-    public Fish(String name, FishType type, List<Season> seasons, List<TimeRange> timeRanges, List<Weather> weathers, List<Point> locations) {
+    public Fish(String name, FishType type, List<Season> seasons, List<TimeRange> timeRanges, List<Weather> weathers, List<String> locations) {
         super(name, 0, 0, false);
         if (seasons == null || timeRanges == null || weathers == null || locations == null) {
             throw new IllegalArgumentException("Data ikan tidak boleh null");
@@ -126,7 +124,7 @@ public class Fish extends Item implements EdibleItem {
         return weathers;
     }
 
-    public List<Point> getLocations() {
+    public List<String> getLocations() {
         return locations;
     }
 
@@ -135,7 +133,7 @@ public class Fish extends Item implements EdibleItem {
         List<Season> seasons = List.of(Season.SPRING, Season.SUMMER);
         List<TimeRange> timeRanges = List.of(new TimeRange(6, 18)); // 12 jam
         List<Weather> weathers = List.of(Weather.SUNNY);
-        List<Point> locations = List.of(new Point(5, 10), new Point(20, 30)); // 2 lokasi
+        List<String> locations = List.of("River", "Lake"); // 2 lokasi
 
         // Buat ikan REGULAR
         Fish regularFish = new Fish("Mackerel", FishType.REGULAR, seasons, timeRanges, weathers, locations);
