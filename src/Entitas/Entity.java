@@ -8,8 +8,7 @@ public abstract class Entity{
     public Entity(String name, String location){
         this.name = name;
         this.location = location;
-        coordinate.setX(0);
-        coordinate.setY(0);
+        this.coordinate = new Point(0, 0);
     }
 
     public String getName(){
