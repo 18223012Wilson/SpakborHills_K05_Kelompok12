@@ -1,14 +1,15 @@
 package ITEMS;
 
 import java.util.Map;
+import PlayernNPC.*;
 
 public class Recipe {
     private String id;
     private String name; // ini juga jadi nama hasil makanan
     private Map<String, Integer> ingredients;
-    private String unlockCondition;
+    private boolean unlockCondition;
 
-    public Recipe(String id, String name, Map<String, Integer> ingredients, String unlockCondition) {
+    public Recipe(String id, String name, Map<String, Integer> ingredients, boolean unlockCondition) {
         this.id = id;
         this.name = name;
         this.ingredients = ingredients;
@@ -27,12 +28,28 @@ public class Recipe {
         return ingredients;
     }
 
-    public String getUnlockCondition() {
+    public Boolean getUnlockCondition() {
         return unlockCondition;
     }
 
-    // tambahin fungsi ini di Player (buat cek apakah kondisi player sesuai dengan ketentuan recipe)
-    public boolean isUnlocked(Player player) { 
-        return player.hasUnlockedRecipe(this.id);
+    // berapa banyak makanan bisa dimasak
+    public int getMaxBatch(Inventory inv) {
+        int maxBatch = Integer.MAX_VALUE;
+
+        for (Map.Entry<String, Integer> entry : ingredients.entrySet()) {
+            String ingredientName = entry.getKey();
+            int requiredQty = entry.getValue();
+
+            int playerQty = inv.getItemCountByCategoryOrName(ingredientName); // Ini perlu kamu buat di Inventory
+            int batchPossible = playerQty / requiredQty;
+            maxBatch = Math.min(maxBatch, batchPossible);
+        }
+        return maxBatch;
     }
+
+    // buat cek apakah kondisi player sesuai dengan ketentuan recipe
+    public boolean isUnlocked(Player player) { 
+        return unlockCondition || player.hasUnlockedRecipe(id);
+    }
+
 }
