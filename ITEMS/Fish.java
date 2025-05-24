@@ -15,7 +15,7 @@ public class Fish extends Item implements EdibleItem {
     private List<String> locations;
 
     public Fish(String name, FishType type, List<Season> seasons, List<TimeRange> timeRanges, List<Weather> weathers, List<String> locations) {
-        super(name, 0, 0, false);
+        super(name, 0, 0, true);
         if (seasons == null || timeRanges == null || weathers == null || locations == null) {
             throw new IllegalArgumentException("Data ikan tidak boleh null");
         }
