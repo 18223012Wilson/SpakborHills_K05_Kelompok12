@@ -66,15 +66,27 @@ public class Cooking {
 
     private static boolean hasRequiredIngredients(Player player, Recipe recipe, Map<String, Integer> providedIngredients) {
         Map<String, Integer> required = recipe.getIngredients();
+        Map<Item, Integer> itemMap = player.getInventory().getItemMap();
 
-        for (String ingredient : required.keySet()) {
-            int requiredAmount = required.get(ingredient);
-            int providedAmount = providedIngredients.getOrDefault(ingredient, 0);
+        for (String ingredientName : required.keySet()) {
+            int requiredAmount = required.get(ingredientName);
+            int providedAmount = providedIngredients.getOrDefault(ingredientName, 0);
 
-
-            int available = player.getInventory().getItemCountByCategoryOrName(ingredient);
-            if (providedAmount < requiredAmount || available < requiredAmount) {
-                return false;
+            if (ingredientName.equalsIgnoreCase("Any Fish")) {
+                int totalFish = 0;
+                for (Map.Entry<Item, Integer> entry : itemMap.entrySet()) {
+                    if (entry.getKey() instanceof Fish) {
+                        totalFish += entry.getValue();
+                    }
+                }
+                if (providedAmount < requiredAmount || totalFish < requiredAmount) {
+                    return false;
+                }
+            } else {
+                int available = player.getInventory().getItemCountByCategoryOrName(ingredientName);
+                if (providedAmount < requiredAmount || available < requiredAmount) {
+                    return false;
+                }
             }
         }
         return true;
@@ -82,7 +94,23 @@ public class Cooking {
 
     private static void consumeIngredients(Player player, Map<String, Integer> ingredients) {
         for (Map.Entry<String, Integer> entry : ingredients.entrySet()) {
-            player.getInventory().removeItemsByCategoryOrName(entry.getKey(), entry.getValue());
+            String ingredientName = entry.getKey();
+            int quantity = entry.getValue();
+
+            if (ingredientName.equalsIgnoreCase("Any Fish")) {
+                // hapus ikan sebanyak jumlah quantity
+                Map<Item, Integer> itemMap = player.getInventory().getItemMap();
+                for (Item item : new ArrayList<>(itemMap.keySet())) {
+                    if (item instanceof Fish && quantity > 0) {
+                        int available = itemMap.get(item);
+                        int toRemove = Math.min(quantity, available);
+                        player.getInventory().removeItem(item, toRemove);
+                        quantity -= toRemove;
+                    }
+                }
+            } else {
+                player.getInventory().removeItemsByCategoryOrName(ingredientName, quantity);
+            }
         }
     }
 
