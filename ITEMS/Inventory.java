@@ -1,10 +1,7 @@
 package ITEMS;
 
 import LocalCalendar.*;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Inventory {
     private Map<Item, Integer> items;
@@ -35,6 +32,7 @@ public class Inventory {
         items.put(item, quantity);
     }
 
+    // open inventory
     public void getItemList() {
         if (items.isEmpty()) {
             System.out.println("Inventory kosong.");
@@ -89,4 +87,19 @@ public class Inventory {
             }
         }
     }
+
+    // public int getItemCountByName(String name) {
+    //     int count = 0;
+    //     for (Item item : items.keySet()) {
+    //         if (item.getName().equalsIgnoreCase(name)) {
+    //             count += items.get(item);
+    //         }
+    //     }
+    //     return count;
+    // }
+
+    public Map<Item, Integer> getItemMap() {
+        return items;
+    }   
+
 }
