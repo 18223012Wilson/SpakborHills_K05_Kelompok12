@@ -19,6 +19,10 @@ public class Inventory {
         addItem(new Equipment("Fishing Rod"), 1);
     }
 
+    public Map<Item, Integer> getItems() {
+        return this.items;
+    }
+    
     public void addItem(Item item, int quantity) {
         for (Map.Entry<Item, Integer> entry : items.entrySet()) {
             Item existItem = entry.getKey();
