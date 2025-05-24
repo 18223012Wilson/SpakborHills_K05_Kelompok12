@@ -1,14 +1,15 @@
 package Action;
 
 import ITEMS.*;
-import Player.*;
+import PlayernNPC.*;
 import LocalCalendar.*;
 
-public class Eating {
+public class Eating extends Action{
     private Player player;
     private GameCalendar calendar;
 
-    public Eating(Player player, GameCalendar calendar) {
+    public Eating(Player player, GameCalendar calendar, Item item) {
+        super("Eating", "Memakan item untuk menambah energi", item.getName());
         this.player = player;
         this.calendar = calendar;
     }
@@ -38,8 +39,8 @@ public class Eating {
         // kurangi item dari inventory
         inventory.removeItem(item, 1);
 
-        // tambah waktu 5 menit -> belum ada fungsinya 
-        // calendar.addTime(5);
+        // tambah waktu 5 menit
+        calendar.addTime(5);
 
         System.out.println(player.getName() + " memakan " + item.getName() + " dan mendapatkan " + energyGained + " energi.");
         System.out.println("Energi sekarang: " + player.getEnergy());
