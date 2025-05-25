@@ -31,7 +31,7 @@ public class Player extends Entity{
     private static int averageSeasonExpenditure;
     private static int totalDaysPlayed;
     private static int cropsHarvested;
-    private static int fishCaught;
+    private static int fishCaught = 0;
 
     public Player(String name, String location, String gender, String farmName){
         super(name, location);
@@ -119,6 +119,7 @@ public class Player extends Entity{
     }
 
     public void incrementFishCaught() {
+        fishCaught++;
         totalFishCaught++;
         if (totalFishCaught >= 10) {
             unlockedRecipes.add("recipe_3"); 
@@ -154,6 +155,10 @@ public class Player extends Entity{
         }
     }
 
+    public void doAction(Action action){
+        action.execute();
+    }
+
     //beli dari Emily
     public void buyItem(Item item){ 
         Emily.Sell(this, item);
@@ -165,7 +170,6 @@ public class Player extends Entity{
         averageSeasonExpenditure = totalIncome/totalDaysPlayed;
         totalDaysPlayed = calendar.getDay();
         cropsHarvested = Harvesting.cropsHarvested;
-        fishCaught = Fishing.fishCaught;
 
         System.out.println("Total income : " + totalIncome);
         System.out.println("Total expenditure : " + totalExpenditure);
@@ -183,6 +187,6 @@ public class Player extends Entity{
         System.out.println("Gifting frequency : " + Gifting.frequency);
         // System.out.println("Visiting frequency : " + Visiting.frequency);
         System.out.println("Crop harvested : " + Harvesting.cropsHarvested);
-        System.out.println("Fish caught : " + Fishing.fishCaught);
+        System.out.println("Fish caught : " + fishCaught);
     }
 }
