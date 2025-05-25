@@ -165,7 +165,7 @@ public class Player extends Entity{
         totalExpenditure += item.getBuyPrice(); 
     }
 
-    public static void showStatistic(GameCalendar calendar){
+    public static void showStatistic(GameCalendar calendar, NPC tadi, NPC caroline, NPC perry, NPC dasco, NPC emily, NPC abigail){
         averageSeasonIncome = totalIncome/totalDaysPlayed;
         averageSeasonExpenditure = totalIncome/totalDaysPlayed;
         totalDaysPlayed = calendar.getDay();
@@ -177,12 +177,12 @@ public class Player extends Entity{
         System.out.println("Average season expenditure : " + averageSeasonExpenditure);
         System.out.println("Total days played : " + totalDaysPlayed);
         System.out.println("Relationship status : ");
-        System.out.println("Mayor Tadi : " + tadi.relationshipStatus);
-        System.out.println("Caroline : " + caroline.relationshipStatus);
-        System.out.println("Perry : " + perry.relationshipStatus);
-        System.out.println("Dasco : " + dasco.relationshipStatus);
-        System.out.println("Emily : " + emily.relationshipStatus);
-        System.out.println("Abigail : " + abigail.relationshipStatus);
+        System.out.println("Mayor Tadi : " + tadi.getRelationshipStatus());
+        System.out.println("Caroline : " + caroline.getRelationshipStatus());
+        System.out.println("Perry : " + perry.getRelationshipStatus());
+        System.out.println("Dasco : " + dasco.getRelationshipStatus());
+        System.out.println("Emily : " + emily.getRelationshipStatus());
+        System.out.println("Abigail : " + abigail.getRelationshipStatus());
         System.out.println("Chatting frequency : " + Chatting.frequency);
         System.out.println("Gifting frequency : " + Gifting.frequency);
         // System.out.println("Visiting frequency : " + Visiting.frequency);

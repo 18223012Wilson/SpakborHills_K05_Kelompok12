@@ -20,9 +20,6 @@ public class Sleeping extends Action{
         }else{
             player.setEnergy(player.getMaxEnergy());
         } 
-        // tidur ketika energi -20
-        // tidur ketika jam 2 (main)
-        calendar.timeSkip(6);
         player.prosesShippingBin();
         player.newDayReset();
     }
