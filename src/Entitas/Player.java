@@ -3,6 +3,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import ITEMS.*;
+import LocalCalendar.GameCalendar;
 
 public class Player extends Entity{
     private String gender;
@@ -21,6 +22,15 @@ public class Player extends Entity{
     private boolean caughtLegendFish = false;
     private boolean caughtPufferfish = false;
     private boolean obtainedHotPepper = false;
+
+    // statistik
+    private static int totalIncome = 0;
+    private static int totalExpenditure = 0;
+    private static int averageSeasonIncome;
+    private static int avarageSeasonExpenditure;
+    private static int totalDaysPlayed;
+    private static int cropsHarvested;
+    private static int fishCaught;
 
     public Player(String name, String location, String gender, String farmName){
         super(name, location);
@@ -85,6 +95,7 @@ public class Player extends Entity{
     public void prosesShippingBin() {
         int totalGold = shippingBin.getTotalSellValue();
         gold += totalGold;
+        totalIncome += totalGold;
         System.out.println("Uang hasil penjualan: " + totalGold);
         shippingBin.clearBin();
     }
@@ -145,6 +156,14 @@ public class Player extends Entity{
     //beli dari Emily
     public void buyItem(Item item){ 
         Emily.Sell(this, item);
+        totalExpenditure += item.getBuyPrice(); 
     }
 
+    public static void showStatistic(GameCalendar calendar){
+        averageSeasonIncome = totalIncome/totalDaysPlayed;
+        avarageSeasonExpenditure = totalIncome/totalDaysPlayed;
+        totalDaysPlayed = calendar.getDay();
+        // cropsHarvested;
+        // fishCaught;
+    }
 }
