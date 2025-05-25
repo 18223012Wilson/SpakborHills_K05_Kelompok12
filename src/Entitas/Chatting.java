@@ -5,6 +5,8 @@ public class Chatting extends Action{
     private Player player;
     private GameCalendar calendar;
     private NPC npc;
+    public static int frequency;
+    
     public Chatting(Player player, GameCalendar calendar, NPC npc){
         super("Chatting", "Berbicara dengan NPC", null);
         this.player = player;
@@ -38,5 +40,6 @@ public class Chatting extends Action{
 
         player.setEnergy(energy-5);
         npc.setHeartPoints(npc.getHeartPoints() + 10);
+        frequency++;
     }
 }

@@ -2,6 +2,7 @@ package Entitas;
 import java.util.HashSet;
 import java.util.Set;
 
+import Action.*;
 import ITEMS.*;
 import LocalCalendar.GameCalendar;
 
@@ -27,7 +28,7 @@ public class Player extends Entity{
     private static int totalIncome = 0;
     private static int totalExpenditure = 0;
     private static int averageSeasonIncome;
-    private static int avarageSeasonExpenditure;
+    private static int averageSeasonExpenditure;
     private static int totalDaysPlayed;
     private static int cropsHarvested;
     private static int fishCaught;
@@ -161,9 +162,27 @@ public class Player extends Entity{
 
     public static void showStatistic(GameCalendar calendar){
         averageSeasonIncome = totalIncome/totalDaysPlayed;
-        avarageSeasonExpenditure = totalIncome/totalDaysPlayed;
+        averageSeasonExpenditure = totalIncome/totalDaysPlayed;
         totalDaysPlayed = calendar.getDay();
-        // cropsHarvested;
-        // fishCaught;
+        cropsHarvested = Harvesting.cropsHarvested;
+        fishCaught = Fishing.fishCaught;
+
+        System.out.println("Total income : " + totalIncome);
+        System.out.println("Total expenditure : " + totalExpenditure);
+        System.out.println("Average season income : " + averageSeasonIncome);
+        System.out.println("Average season expenditure : " + averageSeasonExpenditure);
+        System.out.println("Total days played : " + totalDaysPlayed);
+        System.out.println("Relationship status : ");
+        System.out.println("Mayor Tadi : " + tadi.relationshipStatus);
+        System.out.println("Caroline : " + caroline.relationshipStatus);
+        System.out.println("Perry : " + perry.relationshipStatus);
+        System.out.println("Dasco : " + dasco.relationshipStatus);
+        System.out.println("Emily : " + emily.relationshipStatus);
+        System.out.println("Abigail : " + abigail.relationshipStatus);
+        System.out.println("Chatting frequency : " + Chatting.frequency);
+        System.out.println("Gifting frequency : " + Gifting.frequency);
+        // System.out.println("Visiting frequency : " + Visiting.frequency);
+        System.out.println("Crop harvested : " + Harvesting.cropsHarvested);
+        System.out.println("Fish caught : " + Fishing.fishCaught);
     }
 }

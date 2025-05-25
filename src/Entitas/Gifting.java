@@ -9,6 +9,7 @@ public class Gifting extends Action{
     private GameCalendar calendar;
     private NPC npc;
     private Item gift;
+    public static int frequency;
     public Gifting(Player player, GameCalendar calendar, NPC npc, Item gift){
         super("Gifting", "Memberikan item kepada seorang NPC", null);
         this.player = player;
@@ -20,6 +21,12 @@ public class Gifting extends Action{
     public void execute(){
         // cek apakah di rumah NPC
         System.out.println("Melakukan aksi: " + name);
+        
+        int energy = player.getEnergy();
+        if((energy-5) < -20){
+            System.out.println("Energi tidak cukup!");
+            return;
+        }
         
         Boolean found = false;
         for (Map.Entry<Item, Integer> entry : player.getInventory().getItems().entrySet()) {
@@ -33,18 +40,13 @@ public class Gifting extends Action{
             return;
         }
         
-        int energy = player.getEnergy();
-        if((energy-5) < -20){
-            System.out.println("Energi tidak cukup!");
-            return;
-        }
-        
         int npcHeartPoints = npc.getHeartPoints();
         player.setEnergy(energy-5);
         if(!gift.isGiftable()){
             System.out.println("Kamu tidak bisa memberikan item tersebut!");
         }else{
             //untuk loveditems
+            frequency++;
             if(npc.getName().equals("Emily")){
                 if(gift instanceof Seed){
                     System.out.println(player.getName() + " : Hai " + npc.getName() + ", aku ada sesuatu untukmu.");
