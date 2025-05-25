@@ -1,5 +1,7 @@
 package Action;
 
+import java.util.Map;
+
 import ITEMS.*;
 import LocalCalendar.GameCalendar;
 import PlayernNPC.*;
@@ -32,7 +34,27 @@ public class Selling extends Action {
 
     // dipanggil saat malam ketika tidur
     public void processNightSell(Player player) {
-    }
+        Map<Item, Integer> binItems = shippingBin.getBinItems();
+        if (binItems.isEmpty()) {
+            System.out.println("Tidak ada item untuk dijual malam ini.");
+            return;
+        }
 
-    // uang player masuk besoknya
+        int totalGold = 0;
+        System.out.println("=== Ringkasan Penjualan Hari Ini ===");
+        for (Map.Entry<Item, Integer> entry : binItems.entrySet()) {
+            Item item = entry.getKey();
+            int quantity = entry.getValue();
+            int price = item.getSellPrice();
+            int subtotal = price * quantity;
+
+            System.out.println("- " + item.getName() + " x" + quantity + " @ " + price + "g = " + subtotal + "g");
+            totalGold += subtotal;
+        }
+
+        player.setGold(player.getGold() + totalGold);
+        System.out.println("Total pendapatan hari ini: " + totalGold + "g");
+        shippingBin.clearBin();         
+        shippingBin.markAsSold();       
+    }
 }
