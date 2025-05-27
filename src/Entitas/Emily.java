@@ -1,4 +1,4 @@
-package Entitas;
+package PlayernNPC;
 import ITEMS.*;
 
 public class Emily extends NPC{
@@ -15,19 +15,40 @@ public class Emily extends NPC{
 
     public static void Sell(Player player, Item item){
         //cek lokasi store
-        if(item instanceof Seed || item instanceof Crop || item instanceof Food || item instanceof Misc){
-            int price = item.getBuyPrice();
-            if(price == 0){
-                System.out.println("Barang ini tidak bisa dibeli");
+        if (item instanceof Seed || item instanceof Crop || item instanceof Food || item instanceof Misc){
+            // proposal ring cuma bisa dibeli 1x
+            if (item.getName().equalsIgnoreCase("Proposal Ring") && player.getInventory().getItemMap().keySet().stream().anyMatch(i -> i.getName().equalsIgnoreCase("Proposal Ring"))) {
+                System.out.println("Emily: Maaf, kamu sudah membeli Proposal Ring sebelumnya.");
+                return;
             }
-            if(player.getGold() < price){
+            
+            int price = item.getBuyPrice();
+            if (price == 0) {
+                System.out.println("Barang ini tidak bisa dibeli");
+                return;
+            }
+
+            if (player.getGold() < price) {
                 System.out.println("Uangmu tidak cukup!");
-            }else{
+            } else {
                 player.setGold(player.getGold()-price);
                 player.getInventory().addItem(item, 1);
                 System.out.println("Terimakasih sudah berbelanja!");
             }
-        }else{
+
+            if (item.getName().startsWith("Recipe:")) {
+                String recipeName = item.getName().substring("Recipe:".length()).trim(); // contoh: "Fish Sandwich"
+                
+                for (Recipe recipe : RecipeDatabase.getAllRecipes()) {
+                    if (recipe.getName().equalsIgnoreCase(recipeName)) {
+                        player.getUnlockedRecipes().add(recipe.getId());
+                        System.out.println("Resep '" + recipe.getName() + "' telah berhasil di-unlock!");
+                        break;
+                    }
+                }
+            }
+            
+        } else {
             System.out.println("Emily : Maaf, aku tidak menjual barang itu.");
         }
     }
