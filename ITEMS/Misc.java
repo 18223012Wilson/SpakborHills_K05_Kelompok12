@@ -22,8 +22,8 @@ public class Misc extends Item {
         miscItems.add(new Misc("Coal", 100, 50, true));
         miscItems.add(new Misc("Firewood", 200, 100, true));
         miscItems.add(new Misc("Proposal Ring", 3000, 0, true));
-        miscItems.add(new Misc("Recipe 1 : Fish n’ Chips", 20, 0, false));
-        miscItems.add(new Misc("Recipe 10 : Fish Sandwich", 30, 0, false));
+        miscItems.add(new Misc("Recipe: Fish n’ Chips", 20, 0, false));
+        miscItems.add(new Misc("Recipe: Fish Sandwich", 30, 0, false));
     }
 
     public static List<Misc> getAllMiscItems() {
