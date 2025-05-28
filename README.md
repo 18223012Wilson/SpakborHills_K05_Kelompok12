@@ -78,7 +78,7 @@ Berikut adalah fitur-fitur utama yang telah diimplementasikan dalam game "Spakbo
 
 ---
 
-## 👨‍👩‍👧‍👦 Anggota Tim (Kelompok [Nomor Kelompok Anda])
+## 👨‍👩‍👧‍👦 Anggota Tim (Kelompok 12) - K02
 
 * **Stevan Einer Bonagabe** - 18223028
 * **Wilson** - 18223012
