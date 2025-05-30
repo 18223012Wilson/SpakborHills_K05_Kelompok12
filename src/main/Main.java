@@ -192,7 +192,7 @@ public class Main extends JFrame {
 
         this.player = new Player(playerName, "Farm", playerGender, playerName + "'s Farm");
         this.player.moveTo(startingPlayerCoordinate);
-        this.player.setGold(17200);
+        this.player.setGold(0);
 
         gameCalendar = new GameCalendar(farmMap, this.player);
         gameCalendar.setMainFrame(this);
