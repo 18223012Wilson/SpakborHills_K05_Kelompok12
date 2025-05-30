@@ -57,25 +57,12 @@ Berikut adalah fitur-fitur utama yang telah diimplementasikan dalam game "Spakbo
 
 1.  **Prasyarat**: Pastikan Java dengan versi terbaru (23) (atau yang sesuai dengan pengembangan Anda) telah terinstal di sistem Anda.
 
-3.  **Kompilasi**:
+2.  **Menjalankan Aplikasi**:
     * **Menggunakan IDE (IntelliJ IDEA atau VS Code) - Direkomendasikan**:
-        1.  Buka proyek (folder utama, misal `...`) menggunakan IDE Anda.
-        2.  Pastikan konfigurasi JDK untuk proyek telah benar. IDE akan menangani kompilasi.
-    * **Manual (menggunakan `javac` dari terminal/command prompt)**:
-        Navigasi ke direktori `src` dalam proyek. Perintah mungkin memerlukan penyesuaian.
-        ```bash
-        # Contoh untuk membuat direktori output 'bin' satu level di atas 'src'
-        mkdir ../bin
-        javac -d ../bin -sourcepath . $(find . -name "*.java")
-        # Perintah 'find' untuk Linux/macOS. Alternatif mungkin diperlukan untuk Windows.
-        ```
-4.  **Menjalankan Aplikasi**:
-    * **Dari IDE**:
-        1.  Temukan file `Main.java` dalam paket `main`.
-        2.  Klik kanan pada file tersebut dan pilih opsi "Run 'Main.main()'".
-    * **Dari Command Line (setelah kompilasi ke direktori `bin`)**:
-        Navigasi ke direktori root proyek Anda.
-
+        1.  Unduh folder “SpakborHills_K05_Kelompok12” dari Github
+        2.  Buka folder menggunakan VSCode. Klik kanan pada folder resources dan pilih “Add Folder to Java Source Path”
+        3.  Buka folder src, klik folder main dan run file Main.java
+        4.  Tampilan GUI akan muncul dan game dapat dimainkan
 ---
 
 ## 👨‍👩‍👧‍👦 Anggota Tim (Kelompok 12) - K05
@@ -93,7 +80,9 @@ Berikut adalah fitur-fitur utama yang telah diimplementasikan dalam game "Spakbo
 * **Design Pattern yang Diimplementasikan**:
     1.  **Factory Pattern**: Digunakan dalam `FishDatabase` dan `Crop`.
     2.  **Command Pattern**: Struktur kelas `model.actions.Action` dan turunannya mengkapsulasi aksi pemain. `ActionPanel` bertindak sebagai *invoker*.
-    3.  **Observer Pattern (via Event Listener)**: Pola ini diterapkan dalam penanganan input  menggunakan mekanisme *event listener* (`KeyListener`, `MouseListener`) untuk "mendengarkan" dan merespons aksi pengguna 
+    3.  **Observer Pattern (via Event Listener)**: Pola ini diterapkan dalam penanganan input  menggunakan mekanisme *event listener* (`KeyListener`, `MouseListener`) untuk "mendengarkan" dan merespons aksi pengguna
+
+* Buklet Permainan dapaat dilihat pada Link berikut "[[BUKLET-TUBES-OOP]](https://www.canva.com/design/DAGo8JHbLqU/rpCoR2rKtFccMKSYQQbd2w/edit?utm_content=DAGo8JHbLqU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)".
 
 * Spesifikasi lengkap proyek dapat dirujuk pada dokumen "[Spesifikasi Tugas Besar IF2010 Pemrograman Berorientasi Objek STI 2024/2025](https://docs.google.com/document/d/1ru0DxHUwVJ8Az76CZUL1KACXg6uCMC1B7WnSy6bnlHw/edit?usp=sharing)".
 
