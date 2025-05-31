@@ -174,10 +174,12 @@ public class Player extends Entity {
 
         if (getEnergy() <= -20) {
             setEnergy(getMaxEnergy() / 2);
-        } else if (getEnergy() < (getMaxEnergy() * 0.1)) {
+        }
+        else if (getEnergy() < (getMaxEnergy() * 0.1)) {
             setEnergy(getEnergy() + (getMaxEnergy() / 2));
             if(getEnergy() > getMaxEnergy()) setEnergy(getMaxEnergy());
-        } else if (getEnergy() == 0) {
+        }
+        else if (getEnergy() == 0) {
             setEnergy(10);
         }
         else {

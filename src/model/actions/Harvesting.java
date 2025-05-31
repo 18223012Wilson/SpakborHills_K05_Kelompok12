@@ -24,9 +24,11 @@ public class Harvesting extends Action {
     @Override
     public String execute() {
         if (player.getEnergy() < getEnergyCost() && player.getEnergy() > -20 && getEnergyCost() > 0) {
-        } else if (player.getEnergy() <= -20 && getEnergyCost() > 0) {
+        }
+        else if (player.getEnergy() <= -20 && getEnergyCost() > 0) {
             return "Not enough energy (already at critical)!";
-        } else if (player.getEnergy() < getEnergyCost() && getEnergyCost() > 0) {
+        }
+        else if (player.getEnergy() < getEnergyCost() && getEnergyCost() > 0) {
             return "Not enough energy for harvesting!";
         }
 

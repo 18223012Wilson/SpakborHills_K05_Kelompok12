@@ -24,9 +24,6 @@ public class VisitMountainLakeAction extends Action {
         if (player.getEnergy() - energyCost < -20 && player.getEnergy() > -20) {
             return "Too tired to visit the Mountain Lake. Will become exhausted.";
         }
-        if (player.getEnergy() < energyCost && energyCost > 0) {
-            return "Not enough energy to visit the Mountain Lake. Need: " + energyCost + ", Have: " + player.getEnergy();
-        }
 
         player.decreaseEnergy(energyCost);
         calendar.addTime(getTimeCost());

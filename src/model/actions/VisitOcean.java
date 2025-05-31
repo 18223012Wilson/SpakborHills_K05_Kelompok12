@@ -24,9 +24,7 @@ public class VisitOcean extends Action {
         if (player.getEnergy() - energyCost < -20 && player.getEnergy() > -20) {
             return "Too tired to visit the Ocean. Will become exhausted.";
         }
-        if (player.getEnergy() < energyCost && energyCost > 0) {
-            return "Not enough energy to visit the Ocean. Need: " + energyCost + ", Have: " + player.getEnergy();
-        }
+
 
         player.decreaseEnergy(energyCost);
         calendar.addTime(getTimeCost());
