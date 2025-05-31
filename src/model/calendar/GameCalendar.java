@@ -106,6 +106,9 @@ public class GameCalendar implements Runnable {
                 previousTime.isBefore(LocalTime.of(2,0)) ) {
             handlePassOut("Waduh, saking asyiknya kerja, kamu ketiduran di jalan! Untung ada yang nolongin pulang. Bangun-bangun udah jam 6 pagi di depan rumah.");
         }
+        if (player.getEnergy() <= -20) {
+            handlePassOut("Waduh, kamu kecapean saat bekerja. Energimu habis, dan kamu sekarang terbangun di rumah.");
+        }
     }
 
     public void performSleepAndAdvanceDay() {
