@@ -46,13 +46,24 @@ public class Emily extends NPC {
 
         // Crops
         itemsForSale.add(Crop.fromString("Parsnip"));
+        itemsForSale.add(Crop.fromString("Cauliflower"));
         itemsForSale.add(Crop.fromString("Wheat"));
+        itemsForSale.add(Crop.fromString("Blueberry"));
+        itemsForSale.add(Crop.fromString("Tomato"));
+        itemsForSale.add(Crop.fromString("Pumpkin"));
+        itemsForSale.add(Crop.fromString("Grape"));
 
         // Food
         itemsForSale.add(new Food("Fish n’ Chips", 150, 135, 50, true));
         itemsForSale.add(new Food("Baguette", 100, 80, 25, true));
         itemsForSale.add(new Food("Wine", 100, 90, 20, true));
         itemsForSale.add(new Food("Pumpkin Pie", 120, 100, 35, true));
+        itemsForSale.add(new Food("Sashimi", 300, 275, 70, true));
+        itemsForSale.add(new Food("Veggie Soup", 140, 120, 40, true));
+        itemsForSale.add(new Food("Fish Stew", 280, 260, 70, true));
+        itemsForSale.add(new Food("Fish Sandwich", 200, 180, 50, true));
+        itemsForSale.add(new Food("Cooked Pig's Head", 1000, 0, 100, true));
+
 
         // Misc
         itemsForSale.add(Misc.findMiscItemByName("Coal"));
