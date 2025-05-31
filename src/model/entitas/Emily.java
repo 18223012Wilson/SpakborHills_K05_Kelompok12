@@ -69,6 +69,8 @@ public class Emily extends NPC {
         itemsForSale.add(Misc.findMiscItemByName("Coal"));
         itemsForSale.add(Misc.findMiscItemByName("Firewood"));
         itemsForSale.add(Misc.findMiscItemByName("Proposal Ring"));
+        itemsForSale.add(Misc.findMiscItemByName("Egg"));
+
 
         // Recipes as Misc
         itemsForSale.add(new Misc("Recipe: Fish n’ Chips", 20, 0, false));
