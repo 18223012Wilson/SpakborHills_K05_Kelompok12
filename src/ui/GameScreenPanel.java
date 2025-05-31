@@ -275,6 +275,14 @@ public class GameScreenPanel extends JPanel implements KeyListener {
                 availableActions.add(new Chatting(player, gameCalendar, emily));
                 availableActions.add(new InitiateGiftingUIAction(player, gameCalendar, emily, mainFrame, this));
                 availableActions.add(new InitiateBuyingDialogAction(player, gameCalendar, emily, mainFrame, this));
+                if (!emily.getRelationshipStatus().equals("fiance") && !emily.getRelationshipStatus().equals("spouse")) {
+                    if (emily.getHeartPoints() == emily.getMaxHeartPoints()) {
+                        availableActions.add(new Proposing(player, gameCalendar, emily));
+                    }
+                }
+                else if (emily.getRelationshipStatus().equals("fiance")) {
+                    availableActions.add(new Marrying(player, gameCalendar, emily, mainFrame));
+                }
             }
             else if (storeMapInstance.getTileType(tileY, tileX) == 'C' &&
                     Math.abs(playerCoordinate.getX() - tileX) <=1 &&
@@ -691,7 +699,8 @@ public class GameScreenPanel extends JPanel implements KeyListener {
                     if (foundNpc.getHeartPoints() == foundNpc.getMaxHeartPoints()) {
                         availableActions.add(new Proposing(player, gameCalendar, foundNpc));
                     }
-                } else if (foundNpc.getRelationshipStatus().equals("fiance")) {
+                }
+                else if (foundNpc.getRelationshipStatus().equals("fiance")) {
                     availableActions.add(new Marrying(player, gameCalendar, foundNpc, mainFrame));
                 }
             }
@@ -723,6 +732,14 @@ public class GameScreenPanel extends JPanel implements KeyListener {
                         availableActions.add(new Chatting(player, gameCalendar, emily));
                         availableActions.add(new InitiateGiftingUIAction(player, gameCalendar, emily, mainFrame, this));
                         availableActions.add(new InitiateBuyingDialogAction(player, gameCalendar, emily, mainFrame, this));
+                        if (!emily.getRelationshipStatus().equals("fiance") && !emily.getRelationshipStatus().equals("spouse")) {
+                            if (emily.getHeartPoints() == emily.getMaxHeartPoints()) {
+                                availableActions.add(new Proposing(player, gameCalendar, emily));
+                            }
+                        }
+                        else if (emily.getRelationshipStatus().equals("fiance")) {
+                            availableActions.add(new Marrying(player, gameCalendar, emily, mainFrame));
+                        }
                         interactedWithEmily = true;
                         break;
                     }

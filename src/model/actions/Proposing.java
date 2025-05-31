@@ -13,7 +13,7 @@ public class Proposing extends Action {
     private NPC npc;
 
     public Proposing(Player player, GameCalendar calendar, NPC npc) {
-        super("Lamar " + npc.getName(), "Ajak " + npc.getName() + " untuk menjadi tunanganmu.", "Proposal Ring");
+        super("Propose to " + npc.getName(), "Ajak " + npc.getName() + " untuk menjadi tunanganmu.", "Proposal Ring");
         this.player = player;
         this.calendar = calendar;
         this.npc = npc;

@@ -16,7 +16,7 @@ public class Marrying extends Action {
     private Main mainFrame;
 
     public Marrying(Player player, GameCalendar calendar, NPC npc, Main mainFrame) {
-        super("Nikahi " + npc.getName(), "Satukan janji suci dengan tunanganmu, " + npc.getName() + ".", "Proposal Ring");
+        super("Marry " + npc.getName(), "Satukan janji suci dengan tunanganmu, " + npc.getName() + ".", "Proposal Ring");
         this.player = player;
         this.calendar = calendar;
         this.npc = npc;
