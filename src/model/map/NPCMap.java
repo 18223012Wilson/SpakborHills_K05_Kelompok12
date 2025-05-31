@@ -25,7 +25,12 @@ public class NPCMap {
     private Image[][] houseTiles = new Image[FarmMap.HOUSE_HEIGHT][FarmMap.HOUSE_WIDTH];
 
     public NPCMap(List<NPC> allNpcs) {
-        this.npcs = new ArrayList<>(allNpcs);
+        this.npcs = new ArrayList<>();
+        for (NPC npc : allNpcs) {
+            if (!npc.getName().equals("Emily")) {
+                this.npcs.add(npc);
+            }
+        }
         this.npcHouseTopLeftLocations = new HashMap<>();
         this.npcStandingLocations = new HashMap<>();
         this.npcImages = new HashMap<>();
@@ -66,7 +71,6 @@ public class NPCMap {
                     npcImages.put(npc.getName(), new ImageIcon(npcImgUrl).getImage());
                 } else {
                     System.err.println("NPCMap: Could not load image for " + npc.getName() + " at path " + npc.getImagePath());
-                    // Anda bisa me-load gambar default di sini jika gambar spesifik tidak ditemukan
                     URL defaultNpcImgUrl = getClass().getResource("/npcs/default_npc.png");
                     if (defaultNpcImgUrl != null) {
                         npcImages.put(npc.getName(), new ImageIcon(defaultNpcImgUrl).getImage());
@@ -123,7 +127,8 @@ public class NPCMap {
                 npcStandingLocations.put(npc.getName(), npcPosition);
                 npc.moveTo(npcPosition);
                 npc.setLocation("NPCMap");
-            } else {
+            }
+            else {
                 npcPosition = new Point(currentX + doorRelativeCol, currentY + FarmMap.HOUSE_HEIGHT -1 );
                 if (npcPosition.getY() < MAP_SIZE && npcPosition.getY() >=0 && mapGrid[npcPosition.getY()][npcPosition.getX()] == '.') {
                     npcStandingLocations.put(npc.getName(), npcPosition);
@@ -166,7 +171,6 @@ public class NPCMap {
 
 
     public void draw(Graphics2D g2d, Component observer) {
-        // Draw tiles (grass and houses)
         for (int i = 0; i < MAP_SIZE; i++) {
             for (int j = 0; j < MAP_SIZE; j++) {
                 int x = j * TILE_SIZE;
@@ -222,7 +226,8 @@ public class NPCMap {
                         npcCoord.getX() * TILE_SIZE,
                         npcCoord.getY() * TILE_SIZE,
                         TILE_SIZE, TILE_SIZE, observer);
-            } else if (npcCoord != null) {
+            }
+            else if (npcCoord != null) {
                 g2d.setColor(new Color(128, 0, 128, 200));
                 g2d.fillOval(npcCoord.getX() * TILE_SIZE + TILE_SIZE / 4,
                         npcCoord.getY() * TILE_SIZE + TILE_SIZE / 4,
