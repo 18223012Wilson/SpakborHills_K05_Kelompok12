@@ -105,10 +105,11 @@ public class StoryIntroPanel extends JPanel implements ActionListener {
         storyText.add("Kakek menyerahkan cangkul berkarat dan beberapa benih misterius.");
         storyText.add("\"Ini bekal awalmu. Sisanya......\"");
         storyText.add(" ");
-        storyText.add(" ");
+        storyText.add(playerName + ": \"Loh, sisanya bagaimana kek?\"");
+        storyText.add("...");
         storyText.add("Lalu Sang Kakek berkata ");
         storyText.add(" ");
-        storyText.add("Sybau");
+        storyText.add("\"Sybau\"");
         storyText.add(" ");
         storyText.add(playerName + ", takdirmu terbentang di hadapan.");
         storyText.add("Pulihkanlah Bukit Spakbor, kembalikan senyum pada negeri ini.");
