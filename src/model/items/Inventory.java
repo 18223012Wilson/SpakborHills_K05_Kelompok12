@@ -23,7 +23,7 @@ public class Inventory {
         addItem(new Equipment("Fishing Rod"), 1);
 
         // Default seeds
-        addItem(new Seed("Parsnip Seeds", 20, List.of(Season.SPRING), 1, "Parsnip", true), 5);
+        addItem(new Seed("Parsnip Seeds", 20, List.of(Season.SPRING), 1, "Parsnip", true), 15);
 //        addItem(new Seed("Wheat Seeds", 60, List.of(Season.SPRING, Season.FALL), 1, "Wheat", true), 5);
 //        addItem(new Seed("Cauliflower Seeds", 80, List.of(Season.SPRING), 5, "Cauliflower", true), 3);
 //        addItem(new Seed("Potato Seeds", 50, List.of(Season.SPRING), 3, "Potato", true), 5);
@@ -45,25 +45,25 @@ public class Inventory {
 //        addItem(new Fish("Salmon", Fish.FishType.REGULAR, List.of(Season.FALL), List.of(new Fish.TimeRange(6, 18)), List.of(model.calendar.Weather.SUNNY, model.calendar.Weather.RAINY), List.of("Forest River")), 3);
 
 
-        if (Misc.findMiscItemByName("Firewood") != null) {
-            addItem(Misc.findMiscItemByName("Firewood"), 10);
-        }
-        else {
-            addItem(new Misc("Firewood", 200, 100, true), 10);
-        }
-        if (Misc.findMiscItemByName("Coal") != null) {
-            addItem(Misc.findMiscItemByName("Coal"), 10);
-        }
-        else {
-            addItem(new Misc("Coal", 100, 50, true), 10);
-        }
-
-        if (Misc.findMiscItemByName("Egg") != null) {
-            addItem(Misc.findMiscItemByName("Egg"), 5);
-        }
-        else {
-            addItem(new Misc("Egg", 50, 25, true), 5);
-        }
+//        if (Misc.findMiscItemByName("Firewood") != null) {
+//            addItem(Misc.findMiscItemByName("Firewood"), 10);
+//        }
+//        else {
+//            addItem(new Misc("Firewood", 200, 100, true), 10);
+//        }
+//        if (Misc.findMiscItemByName("Coal") != null) {
+//            addItem(Misc.findMiscItemByName("Coal"), 10);
+//        }
+//        else {
+//            addItem(new Misc("Coal", 100, 50, true), 10);
+//        }
+//
+//        if (Misc.findMiscItemByName("Egg") != null) {
+//            addItem(Misc.findMiscItemByName("Egg"), 5);
+//        }
+//        else {
+//            addItem(new Misc("Egg", 50, 25, true), 5);
+//        }
         addItem(Misc.findMiscItemByName("Red Bull Energy Drink"), 99);
     }
 
