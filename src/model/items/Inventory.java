@@ -24,25 +24,25 @@ public class Inventory {
 
         // Default seeds
         addItem(new Seed("Parsnip Seeds", 20, List.of(Season.SPRING), 1, "Parsnip", true), 5);
-        addItem(new Seed("Wheat Seeds", 60, List.of(Season.SPRING, Season.FALL), 1, "Wheat", true), 5);
-        addItem(new Seed("Cauliflower Seeds", 80, List.of(Season.SPRING), 5, "Cauliflower", true), 3);
-        addItem(new Seed("Potato Seeds", 50, List.of(Season.SPRING), 3, "Potato", true), 5);
-        addItem(new Seed("Grape Seeds", 60, List.of(Season.FALL), 3, "Grape", true), 5);
-        addItem(new Seed("Pumpkin Seeds", 150, List.of(Season.FALL), 7, "Pumpkin", true), 3);
+//        addItem(new Seed("Wheat Seeds", 60, List.of(Season.SPRING, Season.FALL), 1, "Wheat", true), 5);
+//        addItem(new Seed("Cauliflower Seeds", 80, List.of(Season.SPRING), 5, "Cauliflower", true), 3);
+//        addItem(new Seed("Potato Seeds", 50, List.of(Season.SPRING), 3, "Potato", true), 5);
+//        addItem(new Seed("Grape Seeds", 60, List.of(Season.FALL), 3, "Grape", true), 5);
+//        addItem(new Seed("Pumpkin Seeds", 150, List.of(Season.FALL), 7, "Pumpkin", true), 3);
 
 
-        // Items for Cooking Testing
-        addItem(Crop.fromString("Wheat"), 10);
-        addItem(Crop.fromString("Potato"), 5);
-        addItem(Crop.fromString("Grape"), 10);
-        addItem(Crop.fromString("Parsnip"), 3);
-        addItem(Crop.fromString("Cauliflower"), 3);
-        addItem(Crop.fromString("Tomato"), 3);
-        addItem(Crop.fromString("Pumpkin"), 3);
-
-        addItem(new Fish("Bullhead", Fish.FishType.COMMON, List.of(Season.SPRING, Season.SUMMER, Season.FALL, Season.WINTER), List.of(new Fish.TimeRange(0,23)), List.of(model.calendar.Weather.SUNNY, model.calendar.Weather.RAINY), List.of("Pond")), 5);
-        addItem(new Fish("Carp", Fish.FishType.COMMON, List.of(Season.SPRING, Season.SUMMER, Season.FALL, Season.WINTER), List.of(new Fish.TimeRange(0,23)), List.of(model.calendar.Weather.SUNNY, model.calendar.Weather.RAINY), List.of("Pond")), 5);
-        addItem(new Fish("Salmon", Fish.FishType.REGULAR, List.of(Season.FALL), List.of(new Fish.TimeRange(6, 18)), List.of(model.calendar.Weather.SUNNY, model.calendar.Weather.RAINY), List.of("Forest River")), 3);
+//        // Items for Cooking Testing
+//        addItem(Crop.fromString("Wheat"), 10);
+//        addItem(Crop.fromString("Potato"), 5);
+//        addItem(Crop.fromString("Grape"), 10);
+//        addItem(Crop.fromString("Parsnip"), 3);
+//        addItem(Crop.fromString("Cauliflower"), 3);
+//        addItem(Crop.fromString("Tomato"), 3);
+//        addItem(Crop.fromString("Pumpkin"), 3);
+//
+//        addItem(new Fish("Bullhead", Fish.FishType.COMMON, List.of(Season.SPRING, Season.SUMMER, Season.FALL, Season.WINTER), List.of(new Fish.TimeRange(0,23)), List.of(model.calendar.Weather.SUNNY, model.calendar.Weather.RAINY), List.of("Pond")), 5);
+//        addItem(new Fish("Carp", Fish.FishType.COMMON, List.of(Season.SPRING, Season.SUMMER, Season.FALL, Season.WINTER), List.of(new Fish.TimeRange(0,23)), List.of(model.calendar.Weather.SUNNY, model.calendar.Weather.RAINY), List.of("Pond")), 5);
+//        addItem(new Fish("Salmon", Fish.FishType.REGULAR, List.of(Season.FALL), List.of(new Fish.TimeRange(6, 18)), List.of(model.calendar.Weather.SUNNY, model.calendar.Weather.RAINY), List.of("Forest River")), 3);
 
 
         if (Misc.findMiscItemByName("Firewood") != null) {

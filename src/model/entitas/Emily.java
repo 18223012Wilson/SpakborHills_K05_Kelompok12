@@ -1,5 +1,6 @@
 package model.entitas;
 
+import model.calendar.Season;
 import model.items.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -25,14 +26,22 @@ public class Emily extends NPC {
         itemsForSale = new ArrayList<>();
 
         // Seeds
+        // spring
         itemsForSale.add(new Seed("Parsnip Seeds", 20, List.of(model.calendar.Season.SPRING), 1, "Parsnip", true));
         itemsForSale.add(new Seed("Cauliflower Seeds", 80, List.of(model.calendar.Season.SPRING), 5, "Cauliflower", true));
         itemsForSale.add(new Seed("Potato Seeds", 50, List.of(model.calendar.Season.SPRING), 3, "Potato", true));
         itemsForSale.add(new Seed("Wheat Seeds", 60, List.of(model.calendar.Season.SPRING, model.calendar.Season.FALL), 1, "Wheat", true));
+
+        // summer
         itemsForSale.add(new Seed("Blueberry Seeds", 80, List.of(model.calendar.Season.SUMMER), 7, "Blueberry", true));
         itemsForSale.add(new Seed("Tomato Seeds", 50, List.of(model.calendar.Season.SUMMER), 3, "Tomato", true));
+        itemsForSale.add(new Seed("Hot Pepper Seeds", 40, List.of(model.calendar.Season.SUMMER), 1, "Hot Pepper", true));
+        itemsForSale.add(new Seed("Melon Seeds", 80, List.of(Season.SUMMER), 4, "Melon", true));
+
+        // fall
         itemsForSale.add(new Seed("Pumpkin Seeds", 150, List.of(model.calendar.Season.FALL), 7, "Pumpkin", true));
         itemsForSale.add(new Seed("Grape Seeds", 60, List.of(model.calendar.Season.FALL), 3, "Grape", true));
+        itemsForSale.add(new Seed("Cranberry Seeds", 100, List.of(model.calendar.Season.FALL), 2, "Cranberry", true));
 
 
         // Crops

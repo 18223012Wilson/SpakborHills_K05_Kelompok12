@@ -108,7 +108,7 @@ public class Fishing extends Action {
 
         calendar.pauseTime();
 
-        String initialMessage = "World time paused. Started fishing...\n"; //
+        String initialMessage = "World time paused. Started fishing...\n";
 
         if (!initializeFish()) {
             player.decreaseEnergy(getEnergyCost());
